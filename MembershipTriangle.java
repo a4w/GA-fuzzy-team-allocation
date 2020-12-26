@@ -1,4 +1,4 @@
-class MembershipTriangle {
+class MembershipTriangle implements MembershipFunction{
     private float a, b, c;
 
     public MembershipTriangle(float a, float b, float c) {
@@ -7,6 +7,15 @@ class MembershipTriangle {
         this.c = c;
     }
 
+    /*
+     * Let 'value' be a crisp value
+     * Let M_U(value) be the membership of 'value' in fuzzy set 'U'
+     * M_U(value) for a Triangular function is a domain defined function:
+     *
+     *      M_U(value) = { out1,   a <= value <= b
+     *                   { out2,   b <  value <= c
+     *                   { 0,      c <  value < a
+     */
     public float getMembership(float value) {
         Line line = null;
         if (value >= a && value <= b) {
